@@ -5,4 +5,5 @@ export interface LoanData {
   inflation: number;
   cost: number;
   isIndexed: boolean;
+  isValid: boolean;
 }

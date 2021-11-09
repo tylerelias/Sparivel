@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup} from "@angular/forms";
 import {STEPPER_GLOBAL_OPTIONS} from "@angular/cdk/stepper";
 import { BehaviorSubject} from "rxjs";
+import {LoanDataService} from "../../service/loan-data.service";
+import {LoanData} from "../../interface/loan-data";
 
 @Component({
   selector: 'app-loan-stepper',
@@ -16,12 +18,13 @@ import { BehaviorSubject} from "rxjs";
 })
 export class LoanStepperComponent implements OnInit {
 
-  // @ts-ignore
-  firstFormGroup: FormGroup;
-  // @ts-ignore
-  secondFormGroup: FormGroup;
+  loanData!: LoanData;
+  firstFormGroup!: FormGroup;
+  secondFormGroup!: FormGroup;
 
-  constructor(private _formBuilder: FormBuilder) {}
+  constructor(private _formBuilder: FormBuilder, private data: LoanDataService) {
+    this.data.currentLoanData.subscribe(loanData => this.loanData = loanData);
+  }
 
   ngOnInit() {
     this.firstFormGroup = this._formBuilder.group({

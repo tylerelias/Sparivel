@@ -13,7 +13,8 @@ export class LoanDataService {
     interest: 0.0,
     inflation: 0.0,
     cost: 0,
-    isIndexed: false
+    isIndexed: false,
+    isValid: false
   });
 
   currentLoanData = this.loanData.asObservable();
