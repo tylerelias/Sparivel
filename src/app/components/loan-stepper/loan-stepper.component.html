@@ -1,0 +1,18 @@
+<mat-stepper>
+  <mat-step [stepControl]="firstFormGroup" errorMessage="Vantar upplýsingar til að framlvæma útreikninga">
+    <form [formGroup]="firstFormGroup">
+      <ng-template matStepLabel>Lánsupplýsingar</ng-template>
+      <app-user-loan-information></app-user-loan-information>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="secondFormGroup">
+    <form [formGroup]="secondFormGroup">
+      <ng-template matStepLabel>Lánsyfirlit</ng-template>
+      <app-user-loan-overview></app-user-loan-overview>
+    </form>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Greiða inn á lán</ng-template>
+    <app-user-loan-downpayment></app-user-loan-downpayment>
+  </mat-step>
+</mat-stepper>

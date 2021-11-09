@@ -1,0 +1,80 @@
+<h1>Heildaryfirlit húsnæðisláns</h1>
+
+<mat-accordion>
+  <mat-expansion-panel hideToggle>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Lánsupphæð
+      </mat-panel-title>
+      <mat-panel-description>
+        {{this.loanData.amount | currency:'ISK':'':'0.0-0'}} kr
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <p>This is the primary content of the panel.</p>
+  </mat-expansion-panel>
+  <mat-expansion-panel hideToggle>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Lánstími
+      </mat-panel-title>
+      <mat-panel-description>
+        {{this.loanData.duration}} mánuðir
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <p>This is the primary content of the panel.</p>
+  </mat-expansion-panel>
+  <mat-expansion-panel hideToggle>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Vextir
+      </mat-panel-title>
+      <mat-panel-description>
+        {{this.loanData.interest | number}}%
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <p>This is the primary content of the panel.</p>
+  </mat-expansion-panel>
+  <mat-expansion-panel hideToggle>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Verðbólga
+      </mat-panel-title>
+      <mat-panel-description>
+        {{this.loanData.inflation | number}}%
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <p>This is the primary content of the panel.</p>
+  </mat-expansion-panel>
+  <mat-expansion-panel hideToggle>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Fastur kostnaður
+      </mat-panel-title>
+      <mat-panel-description>
+        {{this.loanData.cost | currency:'ISK':'':'0.0-0'}} kr
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <p>This is the primary content of the panel.</p>
+  </mat-expansion-panel>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Settir þú inn rangar upplýsingar?
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <p>Ef þú slóst inn einhverjar rangar upplýsingar getur þú einfaldlega lagað það með því að fara aftur tilbaka í Lánsupplýsingar</p>
+  </mat-expansion-panel>
+</mat-accordion>
+
+<h1>Mánaðarlegar greiðslur</h1>
+<h1>Upphæð mánaðarlegra afborgana</h1>
+<h1>Vaxtagreiðslur</h1>
+<h1>Verðbætur</h1>
+<h1>Heildarkostnaður</h1>
+<h1>Samanburður á kjörum lána</h1>
+
+<div>
+  <p>Go to a different step to see the error state</p>
+  <button mat-button matStepperPrevious>Fara tilbaka</button>
+  <button mat-button matStepperNext>Næsta síða</button>
+</div>

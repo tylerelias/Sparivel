@@ -1,0 +1,123 @@
+<h1>Lánsupplýsingar</h1>
+<div>
+  <label id="loantype-radio-group-label">Veldu tegund láns</label>
+  <mat-radio-group class="loantype-radio-group">
+    <div>
+      <mat-radio-button
+        [value]="false"
+        (change)="change()"
+        class="loantype-radio-button"
+      >Óverðtryggt</mat-radio-button>
+    </div>
+    <div>
+      <mat-radio-button
+        [value]="true"
+        (change)="change()"
+        class="loantype-radio-button"
+      >Verðtryggt</mat-radio-button>
+    </div>
+  </mat-radio-group>
+</div>
+
+<div>
+  <mat-form-field appearance="fill">
+    <mat-label>Lánsupphæð</mat-label>
+    <input
+      type="number"
+      step="1000000"
+      min="0"
+      [formControl]="amountFormControl"
+      (change)="change()"
+      matInput placeholder="Lánsupphæð"
+      required>
+  </mat-form-field>
+</div>
+<div>
+  <mat-form-field appearance="fill">
+    <mat-label>Lánstími</mat-label>
+    <input
+      type="number"
+      step="12"
+      min="0"
+      matInput placeholder="Lánstími"
+      [formControl]="durationFormControl"
+      (change)="change()"
+      required>
+  </mat-form-field>
+</div>
+<div>
+  <mat-form-field appearance="fill">
+    <mat-label>Vextir</mat-label>
+    <input
+      type="number"
+      step="0.25"
+      min="0"
+      matInput placeholder="Vextir"
+      [formControl]="interestFormControl"
+      (change)="change()"
+      required>
+  </mat-form-field>
+</div>
+<div>
+  <mat-form-field appearance="fill">
+    <mat-label>Verðbólga</mat-label>
+    <input
+      type="number"
+      step="0.25"
+      min="-10"
+      matInput placeholder="Verðbólga"
+      [formControl]="inflationFormControl"
+      (change)="change()"
+      required>
+  </mat-form-field>
+</div>
+<div>
+  <mat-form-field appearance="fill">
+    <mat-label>Fastur Kostnaður</mat-label>
+    <input
+      type="number"
+      step="250"
+      min="0"
+      matInput
+      placeholder="Fastur kostnaður"
+      [formControl]="costFormControl"
+      (change)="change()"
+      required>
+  </mat-form-field>
+</div>
+
+<div>
+  <p>Til að sjá útreikinga á ofanágreindu láni skal halda áfram á næstu síðu</p>
+  <button mat-raised-button color="primary" matStepperNext>Reikna Lán</button>
+</div>
+
+<div>
+  indexed:
+{{this.loanData.isIndexed}}
+
+</div>
+<div>
+  amount:
+{{this.loanData.amount}}
+
+</div>
+<div>
+  duration:
+{{this.loanData.duration}}
+
+</div>
+<div>
+  interest:
+{{this.loanData.interest}}
+
+</div>
+<div>
+  inflation:
+  {{this.loanData.inflation}}
+
+</div>
+<div>
+  cost:
+{{this.loanData.cost}}
+
+</div>
