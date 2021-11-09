@@ -19,6 +19,14 @@ import { UserLoanDownpaymentComponent } from './components/user-loan-downpayment
 import {MatRadioModule} from "@angular/material/radio";
 import {MatExpansionModule} from "@angular/material/expansion";
 import {MatIconModule} from "@angular/material/icon";
+import { LoanInfoInvalidComponent } from './components/loan-info-invalid/loan-info-invalid.component';
+import { LoanOverviewDetailsComponent } from './components/loan-overview-details/loan-overview-details.component';
+import { LoanOverviewMonthlyPaymentsComponent } from './components/loan-overview-monthly-payments/loan-overview-monthly-payments.component';
+import { LoanOverviewInterestComponent } from './components/loan-overview-interest/loan-overview-interest.component';
+import { LoanOverviewIndexationComponent } from './components/loan-overview-indexation/loan-overview-indexation.component';
+import { LoanOverviewTotalCostComponent } from './components/loan-overview-total-cost/loan-overview-total-cost.component';
+import { LoanOverviewComparisonComponent } from './components/loan-overview-comparison/loan-overview-comparison.component';
+import { LoanOverviewPaymentChartComponent } from './components/loan-overview-payment-chart/loan-overview-payment-chart.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +37,15 @@ import {MatIconModule} from "@angular/material/icon";
     LoanStepperComponent,
     UserLoanInformationComponent,
     UserLoanOverviewComponent,
-    UserLoanDownpaymentComponent
+    UserLoanDownpaymentComponent,
+    LoanInfoInvalidComponent,
+    LoanOverviewDetailsComponent,
+    LoanOverviewMonthlyPaymentsComponent,
+    LoanOverviewInterestComponent,
+    LoanOverviewIndexationComponent,
+    LoanOverviewTotalCostComponent,
+    LoanOverviewComparisonComponent,
+    LoanOverviewPaymentChartComponent
   ],
   imports: [
     BrowserModule,

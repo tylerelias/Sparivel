@@ -1,85 +1,17 @@
 <h1>Heildaryfirlit húsnæðisláns</h1>
-
-<mat-accordion>
-  <mat-expansion-panel hideToggle>
-    <mat-expansion-panel-header>
-      <mat-panel-title>
-        Lánsupphæð
-      </mat-panel-title>
-      <mat-panel-description>
-        {{this.loanData.amount | currency:'ISK':'':'0.0-0'}} kr
-      </mat-panel-description>
-    </mat-expansion-panel-header>
-    <p>This is the primary content of the panel.</p>
-  </mat-expansion-panel>
-  <mat-expansion-panel hideToggle>
-    <mat-expansion-panel-header>
-      <mat-panel-title>
-        Lánstími
-      </mat-panel-title>
-      <mat-panel-description>
-        {{this.loanData.duration}} mánuðir
-      </mat-panel-description>
-    </mat-expansion-panel-header>
-    <p>This is the primary content of the panel.</p>
-  </mat-expansion-panel>
-  <mat-expansion-panel hideToggle>
-    <mat-expansion-panel-header>
-      <mat-panel-title>
-        Vextir
-      </mat-panel-title>
-      <mat-panel-description>
-        {{this.loanData.interest | number}}%
-      </mat-panel-description>
-    </mat-expansion-panel-header>
-    <p>This is the primary content of the panel.</p>
-  </mat-expansion-panel>
-  <mat-expansion-panel hideToggle>
-    <mat-expansion-panel-header>
-      <mat-panel-title>
-        Verðbólga
-      </mat-panel-title>
-      <mat-panel-description>
-        {{this.loanData.inflation | number}}%
-      </mat-panel-description>
-    </mat-expansion-panel-header>
-    <p>This is the primary content of the panel.</p>
-  </mat-expansion-panel>
-  <mat-expansion-panel hideToggle>
-    <mat-expansion-panel-header>
-      <mat-panel-title>
-        Fastur kostnaður
-      </mat-panel-title>
-      <mat-panel-description>
-        {{this.loanData.cost | currency:'ISK':'':'0.0-0'}} kr
-      </mat-panel-description>
-    </mat-expansion-panel-header>
-    <p>This is the primary content of the panel.</p>
-  </mat-expansion-panel>
-  <mat-expansion-panel>
-    <mat-expansion-panel-header>
-      <mat-panel-title>
-        <span class="material-icons">help</span>
-        Settir þú inn rangar upplýsingar?
-      </mat-panel-title>
-    </mat-expansion-panel-header>
-    <p>Ef þú slóst inn einhverjar rangar upplýsingar getur þú einfaldlega lagað það með því að fara aftur tilbaka í Lánsupplýsingar</p>
-  </mat-expansion-panel>
-</mat-accordion>
-
+<app-loan-overview-details></app-loan-overview-details>
 <h1>Mánaðarlegar greiðslur</h1>
-<div>
-  test
-</div>
-<div *ngIf="loanData.isIndexed">
-  Well your fucked...
-</div>
+<app-loan-overview-monthly-payments></app-loan-overview-monthly-payments>
 <h1>Upphæð mánaðarlegra afborgana</h1>
+<app-loan-overview-payment-chart></app-loan-overview-payment-chart>
 <h1>Vaxtagreiðslur</h1>
+<app-loan-overview-interest></app-loan-overview-interest>
 <h1>Verðbætur</h1>
+<app-loan-overview-indexation></app-loan-overview-indexation>
 <h1>Heildarkostnaður</h1>
+<app-loan-overview-total-cost></app-loan-overview-total-cost>
 <h1>Samanburður á kjörum lána</h1>
-
+<app-loan-overview-comparison></app-loan-overview-comparison>
 <div>
   <p>Go to a different step to see the error state</p>
   <button mat-raised-button color="primary" matStepperPrevious>Fara tilbaka</button>

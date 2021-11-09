@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {LoanData} from "../../interface/loan-data";
 import {LoanDataService} from "../../service/loan-data.service";
 import {FormControl, Validators} from "@angular/forms";
+import {NonIndexedService} from "../../service/non-indexed-calculator.service";
+import {IndexedService} from "../../service/indexed-calculator.service";
 
 @Component({
     selector: 'app-user-loan-information',
@@ -10,14 +12,20 @@ import {FormControl, Validators} from "@angular/forms";
 })
 export class UserLoanInformationComponent implements OnInit {
 
-    loanData!: LoanData;
     isIndexed!: boolean;
+    loanData!: LoanData;
+    nonIndexedLoan: NonIndexedService;
+    indexedLoan: IndexedService;
 
     constructor(private data: LoanDataService) {
+        this.nonIndexedLoan = new NonIndexedService(0, 0, 0, 0);
+        this.indexedLoan = new IndexedService(0, 0, 0, 0, 0);
     }
 
     ngOnInit(): void {
         this.data.currentLoanData.subscribe(loanData => this.loanData = loanData);
+        this.data.currentNonIndexedLoan.subscribe(nonIndexedLoan => this.nonIndexedLoan = nonIndexedLoan);
+        this.data.currentIndexedLoan.subscribe(indexedLoan => this.indexedLoan = indexedLoan);
     }
 
     change() {
@@ -30,6 +38,9 @@ export class UserLoanInformationComponent implements OnInit {
             isIndexed: this.isIndexed,
             isValid: this.isValid()
         })
+        if (this.isValid()) {
+            this.calculateLoans()
+        }
     }
 
     isValid() {
@@ -40,6 +51,13 @@ export class UserLoanInformationComponent implements OnInit {
             this.interestFormControl.valid &&
             this.durationFormControl.valid
         )
+    }
+
+    async calculateLoans() {
+        await this.nonIndexedLoan.NonIndexedCalculation();
+        this.data.changeNonIndexedLoan(this.nonIndexedLoan);
+        // this.indexedLoan.IndexedCalculation();
+        // this.data.changeIndexedLoan(this.indexedLoan)
     }
 
     // FORM CONTROLS

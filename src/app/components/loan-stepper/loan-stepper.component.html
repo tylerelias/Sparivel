@@ -8,11 +8,13 @@
   <mat-step [stepControl]="secondFormGroup">
     <form [formGroup]="secondFormGroup">
       <ng-template matStepLabel>Lánsyfirlit</ng-template>
-      <app-user-loan-overview></app-user-loan-overview>
+      <app-user-loan-overview *ngIf="loanData.isValid"></app-user-loan-overview>
+      <app-loan-info-invalid *ngIf="!loanData.isValid"></app-loan-info-invalid>
     </form>
   </mat-step>
   <mat-step>
     <ng-template matStepLabel>Greiða inn á lán</ng-template>
-    <app-user-loan-downpayment></app-user-loan-downpayment>
+    <app-user-loan-downpayment *ngIf="loanData.isValid"></app-user-loan-downpayment>
+    <app-loan-info-invalid *ngIf="!loanData.isValid"></app-loan-info-invalid>
   </mat-step>
 </mat-stepper>
