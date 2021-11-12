@@ -1,7 +1,8 @@
 <div>
-    <h3 *ngIf="loanData.isIndexed">{{indexedLoan.averageMonthlyPayment.toString() | currency:'ISK':'':'0.0-0'}} kr</h3>
-    <h3 *ngIf="!loanData.isIndexed">{{nonIndexedLoan.firstMonthlyPayment.toString() | currency:'ISK':'':'0.0-0'}} kr</h3>
+    <h2 *ngIf="loanData.isIndexed">Fyrsta: {{indexedLoan.firstMonthlyPayment.toString() | currency:'ISK':'':'0.0-0'}} kr</h2>
+    <h2 *ngIf="!loanData.isIndexed">Meðaltal: {{nonIndexedLoan.firstMonthlyPayment.toString() | currency:'ISK':'':'0.0-0'}} kr</h2>
 </div>
 <div *ngIf="loanData.isIndexed">
-    Indexed: First Monthly, Last Monthly Payment
+    <h2 *ngIf="loanData.isIndexed">Meðaltal: {{indexedLoan.averageMonthlyPayment.toString() | currency:'ISK':'':'0.0-0'}} kr</h2>
+    <h2 *ngIf="loanData.isIndexed">Seinasta: {{indexedLoan.lastMonthlyPayment.toString() | currency:'ISK':'':'0.0-0'}} kr</h2>
 </div>
