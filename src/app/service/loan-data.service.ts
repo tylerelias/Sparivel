@@ -52,7 +52,7 @@ export class LoanDataService {
         loanData.inflation,
         loanData.cost
     ))
-    // this.indexedLoan.value.IndexedCalculation();
+    this.indexedLoan.value.IndexedCalculation();
   }
 
   updateNonIndexedLoans(loanData: LoanData) {
@@ -62,6 +62,6 @@ export class LoanDataService {
         loanData.interest,
         loanData.cost
     ))
-    // this.nonIndexedLoan.value.NonIndexedCalculation();
+    this.nonIndexedLoan.value.NonIndexedCalculation();
   }
 }

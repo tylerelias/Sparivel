@@ -4,17 +4,17 @@
   <mat-radio-group class="loantype-radio-group">
     <div>
       <mat-radio-button
+        (change)="onRadioButtonChange(false)"
         value="false"
-        (click)="isIndexed=false"
-        (change)="change()"
+        checked="{{!isIndexed}}}"
         class="loantype-radio-button"
       >Óverðtryggt</mat-radio-button>
     </div>
     <div>
       <mat-radio-button
+        (change)="onRadioButtonChange(true)"
         value="true"
-        (click)="isIndexed=true"
-        (change)="change()"
+        checked="{{isIndexed}}"
         class="loantype-radio-button"
       >Verðtryggt</mat-radio-button>
     </div>

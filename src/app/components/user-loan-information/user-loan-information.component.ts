@@ -12,7 +12,7 @@ import {IndexedService} from "../../service/indexed-calculator.service";
 })
 export class UserLoanInformationComponent implements OnInit {
 
-    isIndexed!: boolean;
+    isIndexed: boolean;
     loanData!: LoanData;
     nonIndexedLoan: NonIndexedService;
     indexedLoan: IndexedService;
@@ -20,12 +20,18 @@ export class UserLoanInformationComponent implements OnInit {
     constructor(private data: LoanDataService) {
         this.nonIndexedLoan = new NonIndexedService(0, 0, 0, 0);
         this.indexedLoan = new IndexedService(0, 0, 0, 0, 0);
+        this.isIndexed = false;
     }
 
     ngOnInit(): void {
         this.data.currentLoanData.subscribe(loanData => this.loanData = loanData);
         this.data.currentNonIndexedLoan.subscribe(nonIndexedLoan => this.nonIndexedLoan = nonIndexedLoan);
         this.data.currentIndexedLoan.subscribe(indexedLoan => this.indexedLoan = indexedLoan);
+    }
+
+    onRadioButtonChange(value: boolean) {
+        this.isIndexed = value;
+        this.change()
     }
 
     change() {

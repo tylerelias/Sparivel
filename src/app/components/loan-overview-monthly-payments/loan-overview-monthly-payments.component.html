@@ -1,6 +1,6 @@
 <div>
-    <h3 *ngIf="loanData.isIndexed">{{loanData.amount}}</h3>
-    <h3 *ngIf="!loanData.isIndexed">{{loanData.cost}}</h3>
+    <h3 *ngIf="loanData.isIndexed">{{indexedLoan.averageMonthlyPayment.toString() | currency:'ISK':'':'0.0-0'}} kr</h3>
+    <h3 *ngIf="!loanData.isIndexed">{{nonIndexedLoan.firstMonthlyPayment.toString() | currency:'ISK':'':'0.0-0'}} kr</h3>
 </div>
 <div *ngIf="loanData.isIndexed">
     Indexed: First Monthly, Last Monthly Payment
